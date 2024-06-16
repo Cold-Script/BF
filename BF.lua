@@ -33,6 +33,25 @@ do
 local id = game.PlaceId
 if id == 2753915549 then First_Sea = true; elseif id == 4442272183 then Second_Sea = true; elseif id == 7449423635 then Third_Sea = true; else game:Shutdown() end;
 --------------------------------------------------------------------------------------------------------------------------------------------
+--Anti Ban Vip Pro Number 1
+function AntiBan()
+		for L_116_forvar0, L_117_forvar1 in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
+			if L_117_forvar1:IsA("LocalScript") then
+				if L_117_forvar1.Name == "General" or L_117_forvar1.Name == "FallDamage" or L_117_forvar1.Name == "4444" or L_117_forvar1.Name == "CamBob" or L_117_forvar1.Name == "JumpCD" or L_117_forvar1.Name == "Looking" or L_117_forvar1.Name == "Run" then
+					L_117_forvar1:Destroy()
+				end
+			end
+		end
+		for L_118_forvar0, L_119_forvar1 in pairs(game:GetService("Players").LocalPlayer.PlayerScripts:GetDescendants()) do
+			if L_119_forvar1:IsA("LocalScript") then
+				if L_119_forvar1.Name == "RobloxMotor6DBugFix" or L_119_forvar1.Name == "Clans" or L_119_forvar1.Name == "Codes" or L_119_forvar1.Name == "CustomForceField" or L_119_forvar1.Name == "MenuBloodSp" or L_119_forvar1.Name == "PlayerList" then
+					L_119_forvar1:Destroy()
+				end
+			end
+		end
+	end
+	AntiBan()
+----------------------------
 --Flag Player
 Tabs.Main:AddButton({
     Title = "Check Boat",
