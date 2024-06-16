@@ -51,29 +51,6 @@ function AntiBan()
 		end
 	end
 	AntiBan()
-----------------------------
---Flag Player
-Tabs.Main:AddButton({
-    Title = "Check Boat",
-    Description = "check boat",
-    Callback = function()
-        if checkboat() then
-            Fluent:Notify({
-                Title = "YOU HUB",
-                Content = "😃",
-                SubContent = "", -- Optional
-                Duration = 5 -- Set to nil to make the notification not disappear
-            })
-        else
-            Fluent:Notify({
-                Title = "YOU HUB",
-                Content = "Nigga",
-                SubContent = "", -- Optional
-                Duration = 5 -- Set to nil to make the notification not disappear
-            })
-        end
-    end
-})
 --------------------------------------------------------------------------------------------------------------------------------------------
 --Anti AFK
 game:GetService("Players").LocalPlayer.Idled:connect(function()
@@ -2858,9 +2835,9 @@ local listfastattack = {'0','0.2','0.5'}
 	if _G.FastAttackZedr_Mode == "0" then
 		_G.Fast_Delay = 0
 	elseif _G.FastAttackZedr_Mode == "0.2" then
-		_G.Fast_Delay = 0.2
+		_G.Fast_Delay = 0.02
 	elseif _G.FastAttackZedr_Mode == "0.5" then
-		_G.Fast_Delay = 0.5
+		_G.Fast_Delay = 0.05
 	end
 end)
 
@@ -2979,7 +2956,7 @@ end)
 
 
 
-        local ToggleCandy = Tabs.Main:AddToggle("ToggleCandy", {Title = "Auto Farm Candy ( Only Max Level )",Description = "Cày Kẹo ( Chỉ Cấp Độ Tối Đa )", Default = false })
+        local ToggleCandy = Tabs.Main:AddToggle("ToggleCandy", {Title = "Auto Farm Candy ( Only Max Level ) [Event Only]",Description = "Cày Kẹo ( Chỉ Cấp Độ Tối Đa )", Default = false })
         ToggleCandy:OnChanged(function(Value)
            _G.AutoCandy = Value
            if Value == false then
@@ -5864,7 +5841,7 @@ end)
 Options.ToggleFruit:SetValue(false)
 spawn(function()
     pcall(function()
-        while wait(.1) do
+        while wait() do
             if _G.AutoBuyFruitSniper then
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PurchaseRawFruit","_G.SelectFruit",false)
@@ -6004,7 +5981,7 @@ end)
 Options.ToggleRandomFruit:SetValue(false)
 spawn(function()
     pcall(function()
-        while wait(.1) do
+        while wait() do
             if _G.Random_Auto then
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Cousin","Buy")
             end 
@@ -6019,7 +5996,7 @@ end)
 Options.ToggleCollect:SetValue(false)
 
 spawn(function()
-    while wait(.1) do
+    while wait() do
         if _G.Tweenfruit then
             for i,v in pairs(game.Workspace:GetChildren()) do
                 if string.find(v.Name, "Fruit") then
@@ -6900,15 +6877,6 @@ Tabs.Shop:AddButton({
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 --misc
-Tabs.Misc:AddButton({
-	Title = "click để lấy link fb",
-	Description = "facebook chính thức của admin hub",
-	Callback = function()
- setclipboard("https://www.facebook.com/61551675837476")
-  DiscordLib:Notification("Đã Sao Chép Link Facebook" , 10 ,11816162894 )
-	end
-
-})
 Tabs.Misc:AddButton({
 	Title = "Rejoin Server",
 	Description = "tham gia lại máy chủ",
