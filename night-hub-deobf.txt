@@ -1450,7 +1450,7 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
 end)
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/Nghiavndeptraivcc/Orion-nhu-cut/main/Orion.Source')))()
-local Window = OrionLib:MakeWindow({Name = "Night Hub", HidePremium = false,IntroText = "Night Library", SaveConfig = true, ConfigFolder = "Night Hub"})
+local Window = OrionLib:MakeWindow({Name = "YOU HUB", HidePremium = false,IntroText = "Night Library", SaveConfig = true, ConfigFolder = "Night Hub"})
 
 local I = Window:MakeTab({
 	Name = "Info",
