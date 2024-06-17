@@ -948,7 +948,7 @@ end
             UIStroke.Name = "UIStroke"
             UIStroke.Parent = Button
             UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-            UIStroke.Color = _G.Color 
+            UIStroke.Color = Color3.new(0,0,0) -- Này !!!!!!
             UIStroke.LineJoinMode = Enum.LineJoinMode.Round
             UIStroke.Thickness = 1
             UIStroke.Transparency = 0
