@@ -277,7 +277,7 @@ BtnStroke.Name = "BtnStroke"
             end
         end
     end)
- if _G.Mode == "English" then
+ if _G.Text == "Code" then
     Frame.Parent = Main
     Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     Frame.BackgroundTransparency = 1.000
@@ -293,7 +293,7 @@ BtnStroke.Name = "BtnStroke"
     TextLabel.BorderSizePixel = 0
     TextLabel.Position = UDim2.new(0.199847102, 0, 0.25, 0)
     TextLabel.Size = UDim2.new(0, 200, 0, 50)
-    TextLabel.Font = Enum.Font.FredokaOne
+    TextLabel.Font = Enum.Font.Code
     TextLabel.Text = text
     TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
     TextLabel.TextSize = 18.000
@@ -700,7 +700,7 @@ end
 
             ToggleImage.Name = "ToggleImage"
             ToggleImage.Parent = Button
-            ToggleImage.BackgroundColor3 = Color3.fromRGB(225, 225, 225)
+            ToggleImage.BackgroundColor3 = Color3.fromRGB(255,255,255)
             ToggleImage.Position = UDim2.new(0, 332, 0, 6)
             ToggleImage.Size = UDim2.new(0, 45, 0, 20)
 
