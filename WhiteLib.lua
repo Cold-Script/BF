@@ -948,7 +948,7 @@ end
             UIStroke.Name = "UIStroke"
             UIStroke.Parent = Button
             UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-            UIStroke.Color = Color3.new(0,0,0) -- Này !!!!!!
+            UIStroke.Color = Color3.new(1,1,1)
             UIStroke.LineJoinMode = Enum.LineJoinMode.Round
             UIStroke.Thickness = 1
             UIStroke.Transparency = 0
@@ -988,7 +988,7 @@ end
 
             Circle.Name = "Circle"
             Circle.Parent = ToggleImage
-            Circle.BackgroundColor3 = Color3.fromRGB(255,255,255)
+            Circle.BackgroundColor3 = Color3.new(0,0,0)
             Circle.Position = UDim2.new(0, 2, 0, 2)
             Circle.Size = UDim2.new(0, 16, 0, 16)
 
