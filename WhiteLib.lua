@@ -709,7 +709,7 @@ end
 
             Circle.Name = "Circle"
             Circle.Parent = ToggleImage
-            Circle.BackgroundColor3 = Color3.fromRGB(227, 60, 60)
+            Circle.BackgroundColor3 = Color3.fromRGB(255,255,255)
             Circle.Position = UDim2.new(0, 2, 0, 2)
             Circle.Size = UDim2.new(0, 16, 0, 16)
 
@@ -731,7 +731,7 @@ end
                     TweenService:Create(
                         Circle,
                         TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        { BackgroundColor3 = Color3.fromRGB(227, 60, 110) }
+                        { BackgroundColor3 = Color3.fromRGB(255,255,255) }
                     ):Play()
                 end
                 pcall(callback, toggled)
