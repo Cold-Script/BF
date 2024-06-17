@@ -293,8 +293,8 @@ BtnStroke.Name = "BtnStroke"
     TextLabel.BorderSizePixel = 0
     TextLabel.Position = UDim2.new(0.199847102, 0, 0.25, 0)
     TextLabel.Size = UDim2.new(0, 200, 0, 50)
-    TextLabel.Font = Enum.Font.FredokaOne
-    TextLabel.Text = "Maris Hub"
+    TextLabel.Font = Enum.Font.GothamBold
+    TextLabel.Text = ""
     TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
     TextLabel.TextSize = 18.000
     TextLabel.TextWrapped = true
@@ -315,7 +315,7 @@ BtnStroke.Name = "BtnStroke"
     TextLabel.Position = UDim2.new(0.199847102, 0, 0.25, 0)
     TextLabel.Size = UDim2.new(0, 200, 0, 50)
     TextLabel.Font = Enum.Font.FredokaOne
-    TextLabel.Text = "Thai Version"
+    TextLabel.Text = ""
     TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
     TextLabel.TextSize = 18.000
     TextLabel.TextWrapped = true
@@ -1190,7 +1190,7 @@ Title.TextXAlignment = Enum.TextXAlignment.Left
             Title.Position = UDim2.new(0, 45, 0, 5)
             Title.Size = UDim2.new(0, 280, 0, 30)
             Title.Font = Enum.Font.GothamSemibold
-            Title.Text = "|  " .. text
+            Title.Text = "" .. text
             Title.TextColor3 = Color3.fromRGB(255, 255, 255)
             Title.TextSize = 15.000
             Title.TextXAlignment = Enum.TextXAlignment.Left
@@ -1687,7 +1687,7 @@ releaseconnection = uis.InputEnded:Connect(function(Mouse)
  end)
 
 TextBox.FocusLost:Connect(function()
- if tonumber(TextBox.Text) > max then
+ if tonumber(TextBox.Text) > max then 
  TextBox.Text = max
  end
  bar1.Size = UDim2.new((TextBox.Text or 0) / max, 0, 0, 5)
