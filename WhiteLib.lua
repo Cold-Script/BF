@@ -1002,7 +1002,7 @@ end
                     TweenService:Create(
                         Circle,
                         TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        { BackgroundColor3 = _G.Color }
+                        { BackgroundColor3 = Color3.new(0,0,0) }
                     ):Play()
                 else
                     toggled = false
@@ -1010,7 +1010,7 @@ end
                     TweenService:Create(
                         Circle,
                         TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        { BackgroundColor3 = Color3.fromRGB(255,255,255) }
+                        { BackgroundColor3 = Color3.new(0,0,0) }
                     ):Play()
                 end
                 pcall(callback, toggled)
@@ -1022,7 +1022,7 @@ end
                 TweenService:Create(
                     Circle,
                     TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                    { BackgroundColor3 = _G.Color }
+                    { BackgroundColor3 = Color3.new(0,0,0) }
                 ):Play()
                 pcall(callback, toggled)
             end
