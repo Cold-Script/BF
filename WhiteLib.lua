@@ -694,7 +694,7 @@ end
             Title.Size = UDim2.new(0, 280, 0, 30)
             Title.Font = Enum.Font.GothamSemibold
             Title.Text = "" .. text
-            Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+            Title.TextColor3 = Color3.fromRGB(225,225,225)
             Title.TextSize = 15
             Title.TextXAlignment = Enum.TextXAlignment.Left
 
