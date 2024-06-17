@@ -525,7 +525,7 @@ UICornerFrame.Parent = TabFrame
 
             OkayBtn.Name = "OkayBtn"
             OkayBtn.Parent = NotificationFrame
-            OkayBtn.BackgroundColor3 = Color3.fromRGB(190, 190, 190)
+            OkayBtn.BackgroundColor3 = Color3.new(1,1,1)
             OkayBtn.BorderSizePixel = 2
             OkayBtn.BorderColor3 = Color3.new(125, 0, 125)
             OkayBtn.Position = UDim2.new(0, 125, 0, 190)
@@ -533,7 +533,7 @@ UICornerFrame.Parent = TabFrame
             OkayBtn.AutoButtonColor = true
             OkayBtn.Font = Enum.Font.SourceSans
             OkayBtn.Text = ""
-            OkayBtn.TextColor3 = Color3.new(125, 0, 125)
+            OkayBtn.TextColor3 = Color3.new(1, 1, 1)
             OkayBtn.TextSize = 13.000
 
             OkayBtnCorner.CornerRadius = UDim.new(0, 5)
@@ -547,7 +547,7 @@ UICornerFrame.Parent = TabFrame
             OkayBtnTitle.Size = UDim2.new(0, 150, 0, 30)
             OkayBtnTitle.Text = "OK"
             OkayBtnTitle.Font = Enum.Font.GothamSemibold
-            OkayBtnTitle.TextColor3 = Color3.fromRGB(0, 0, 0)
+            OkayBtnTitle.TextColor3 = Color3.new(1,1,1)
             OkayBtnTitle.TextSize = 22.000
 
             NotificationTitle.Name = "NotificationTitle"
@@ -578,7 +578,7 @@ UICornerFrame.Parent = TabFrame
             NotificationDesc.Font = Enum.Font.GothamSemibold
             NotificationDesc.Text = textdesc
             NotificationDesc.TextScaled = false
-            NotificationDesc.TextColor3 = Color3.new(125, 0, 125)
+            NotificationDesc.TextColor3 = Color3.new(1,1,1)
             NotificationDesc.TextSize = 16.000
             NotificationDesc.TextWrapped = true
             NotificationDesc.TextXAlignment = Enum.TextXAlignment.Center
@@ -605,7 +605,7 @@ UICornerFrame.Parent = TabFrame
                         BackgroundTransparency = 1
                     }):Play()
 
-                wait(.3)
+                wait(0.3)
 
                 NotificationHold:Destroy()
             end)
