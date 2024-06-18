@@ -6,6 +6,9 @@ local loki = Instance.new("ImageLabel")
 local posto = Instance.new("UIStroke")
 
 openshit.Name = "openshit"
+openshit.DisplayOrder = 999999999
+openshit.IgnoreGuiInset = false
+openshit.ResetOnSpawn = false
 openshit.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 openshit.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
