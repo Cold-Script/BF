@@ -1,3 +1,4 @@
+while task.wait(3) do
 local openshit = Instance.new("ScreenGui")
 local mainopen = Instance.new("TextButton")
 local mainopens = Instance.new("UICorner")
@@ -99,7 +100,7 @@ mainopens.Parent = mainopen
   end
  )
  end
-
+end
 
 repeat task.wait(0.1) until game.Players.LocalPlayer
 
