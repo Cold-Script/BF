@@ -2820,26 +2820,49 @@ end)
 --------------------------------------------------------------------------------------------------------------------------------------------
 --Create Tabs
 local Farming = Tabs.Main:AddSection("Farming")
-local listfastattack = {'0','0.2','0.5'}
-
-    local DropdownDelayAttack = Tabs.Main:AddDropdown("DropdownDelayAttack", {
-        Title = "Select Fast Attack",
-        Description = "Chọn Tốc Độ Đánh",
-        Values = listfastattack,
-        Multi = false,
-        Default = 1,
-    })
-    DropdownDelayAttack:SetValue("Fast Attack")
-    DropdownDelayAttack:OnChanged(function(Value)
-    _G.FastAttackZedr_Mode = Value
-	if _G.FastAttackZedr_Mode == "0" then
-		_G.Fast_Delay = 0
-	elseif _G.FastAttackZedr_Mode == "0.2" then
-		_G.Fast_Delay = 0.02
-	elseif _G.FastAttackZedr_Mode == "0.5" then
-		_G.Fast_Delay = 0.05
-	end
-end)
+local L_95_ = {
+		'1',
+		'0.9',
+		'0.8',
+          '0.7',
+          '0.6',
+          '0.5',
+          '0.4',
+          '0.3',
+          '0.2',
+          '0.1'
+	}
+	local L_96_ = Tabs.Main:AddDropdown("DropdownDelayAttack", {
+		Title = "Select Fast Attack",
+		Values = L_95_,
+		Multi = false,
+		Default = 1,
+	})
+	L_96_:SetValue("Fast Attack")
+	L_96_:OnChanged(function(L_305_arg0)
+		_G.FastAttackZedr_Mode = L_305_arg0
+		if _G.FastAttack_Mode == "1" then
+			_G.Fast_Delay = 0.5
+		elseif _G.FastAttack_Mode == "0.9" then
+			_G.Fast_Delay = 0.45
+		elseif _G.FastAttack_Mode == "0.8" then
+			_G.Fast_Delay = 0.4
+          elseif _G.FastAttack_Mode == "0.7" then
+			_G.Fast_Delay = 0.35
+		elseif _G.FastAttack_Mode == "0.6" then
+			_G.Fast_Delay = 0.3
+          elseif _G.FastAttack_Mode == "0.5" then
+			_G.Fast_Delay = 0.25
+		elseif _G.FastAttack_Mode == "0.4" then
+			_G.Fast_Delay = 0.2
+          elseif _G.FastAttack_Mode == "0.3" then
+			_G.Fast_Delay = 0.15
+		elseif _G.FastAttack_Mode == "0.2" then
+			_G.Fast_Delay = 0.1
+         elseif _G.FastAttack_Mode == "0.1" then
+			_G.Fast_Delay = 0.05
+		end
+	end)
 
     local DropdownSelectWeapon = Tabs.Main:AddDropdown("DropdownSelectWeapon", {
         Title = "Weapon",
@@ -4860,7 +4883,30 @@ ToggleRemoveNotify:OnChanged(function(Value)
         end)
         Options.ToggleWhite:SetValue(false)
       
+local L_8_ = Tabs.Setting:AddToggle("ToggleFastAttack", {
+	Title = " Enable Fast Attack",
+	Default = true
+})
+L_8_:OnChanged(function(L_510_arg0)
+	_G.FastAttack = L_510_arg0
+end)
+L_6_.ToggleFastAttack:SetValue(true)
 
+spawn(function()
+	while wait() do
+		pcall(function()
+			if _G.FastAttack then
+				repeat
+					wait(_G.Fast_Delay)
+					AttackNoCD()
+				until not _G.FastAttack
+			end
+		end)
+	end
+end)
+
+local L_9_ = require(game.ReplicatedStorage.Util.CameraShaker)
+L_9_:Stop()
 
         local SKill = Tabs.Setting:AddSection("Skill Mastery")
 local ToggleZ = Tabs.Setting:AddToggle("ToggleZ", {Title = "Skill Z",Description = "Kĩ Năng Z", Default = true })
