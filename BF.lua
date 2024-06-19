@@ -2810,7 +2810,7 @@ ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 ImageButton.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
 ImageButton.Size = UDim2.new(0.0627121851, 0, 0.107579626, 0)
 ImageButton.Draggable = true
-ImageButton.Image = "http://www.roblox.com/asset/?id=10756344227"
+ImageButton.Image = "http://www.roblox.com/asset/?id=17293600458"
 ImageButton.MouseButton1Down:connect(function()
     game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.End,false,game)
 end)
@@ -2836,7 +2836,7 @@ local L_95_ = {
 		Title = "Select Fast Attack",
 		Values = L_95_,
 		Multi = false,
-		Default = 1,
+		Default = 0.1,
 	})
 	L_96_:SetValue("Fast Attack")
 	L_96_:OnChanged(function(L_305_arg0)
@@ -2860,7 +2860,7 @@ local L_95_ = {
 		elseif _G.FastAttack_Mode == "0.2" then
 			_G.Fast_Delay = 0.1
          elseif _G.FastAttack_Mode == "0.1" then
-			_G.Fast_Delay = 0.05
+			_G.Fast_Delay = 0
 		end
 	end)
 
@@ -4883,31 +4883,6 @@ ToggleRemoveNotify:OnChanged(function(Value)
         end)
         Options.ToggleWhite:SetValue(false)
       
-local L_8_ = Tabs.Setting:AddToggle("ToggleFastAttack", {
-	Title = " Enable Fast Attack",
-	Default = true
-})
-L_8_:OnChanged(function(L_510_arg0)
-	_G.FastAttack = L_510_arg0
-end)
-L_6_.ToggleFastAttack:SetValue(true)
-
-spawn(function()
-	while wait() do
-		pcall(function()
-			if _G.FastAttack then
-				repeat
-					wait(_G.Fast_Delay)
-					AttackNoCD()
-				until not _G.FastAttack
-			end
-		end)
-	end
-end)
-
-local L_9_ = require(game.ReplicatedStorage.Util.CameraShaker)
-L_9_:Stop()
-
         local SKill = Tabs.Setting:AddSection("Skill Mastery")
 local ToggleZ = Tabs.Setting:AddToggle("ToggleZ", {Title = "Skill Z",Description = "Kĩ Năng Z", Default = true })
 ToggleZ:OnChanged(function(Value)
@@ -7432,3 +7407,24 @@ Fluent:Notify({
     Duration = 8
 })
 SaveManager:LoadAutoloadConfig()
+local L_8_ = Tabs.Setting:AddToggle("ToggleFastAttack", {
+	Title = " Enable Fast Attack",
+	Default = true
+})
+L_8_:OnChanged(function(L_510_arg0)
+	_G.FastAttack = L_510_arg0
+end)
+L_6_.ToggleFastAttack:SetValue(true)
+
+spawn(function()
+	while wait() do
+		pcall(function()
+			if _G.FastAttack then
+				repeat
+					wait(_G.Fast_Delay)
+					AttackNoCD()
+				until not _G.FastAttack
+			end
+		end)
+	end
+end)
