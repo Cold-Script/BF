@@ -4882,7 +4882,14 @@ ToggleRemoveNotify:OnChanged(function(Value)
             end
         end)
         Options.ToggleWhite:SetValue(false)
-      
+
+Tabs.Setting:AddButton({
+	Title = "God Attack (Kick 25%)",
+	Description = "Thần của đánh",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Cold-Script/Attack/main/AttackNoCD", true))()
+		end
+})
         local SKill = Tabs.Setting:AddSection("Skill Mastery")
 local ToggleZ = Tabs.Setting:AddToggle("ToggleZ", {Title = "Skill Z",Description = "Kĩ Năng Z", Default = true })
 ToggleZ:OnChanged(function(Value)
