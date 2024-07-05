@@ -4,7 +4,7 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 ----------------------------------------------------------------------------------------------------------------------------------------------
 local Window = Fluent:CreateWindow({
-    Title = "YOU HUB",
+    Title = "TNT HUB | BlΩx Fruitß",
     SubTitle = "By White5961",
     TabWidth = 160,
     Size = UDim2.fromOffset(530, 350),
@@ -3249,52 +3249,25 @@ end)
     UseCode("Axiore")
     UseCode("TantaiGaming")
     UseCode("STRAWHATMAINE")
+    UseCode("Kitt_reset")
+    UseCode("GamerRobot_Reset1")
+    UseCode("AdminHacked")
+    UseCode("KittGaming")
 
 
-
-    Tabs.Main:AddButton({
-        Title = "Fps Booster",
-        Description = "Giảm Lag",
+    Tabs.Setting:AddButton({
+        Title = "No Effect Dead",
+        Description = "Chết không có hiệu ứng",
         Callback = function()
             FPSBooster()
         end
     })
 
     function FPSBooster()
-        local decalsyeeted = true
         local g = game
         local w = g.Workspace
         local l = g.Lighting
         local t = w.Terrain
-        sethiddenproperty(l,"Technology",2)
-        sethiddenproperty(t,"Decoration",false)
-        t.WaterWaveSize = 0
-        t.WaterWaveSpeed = 0
-        t.WaterReflectance = 0
-        t.WaterTransparency = 0
-        l.GlobalShadows = false
-        l.FogEnd = 9e9
-        l.Brightness = 0
-        settings().Rendering.QualityLevel = "Level01"
-        for i, v in pairs(g:GetDescendants()) do
-            if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
-                v.Material = "Plastic"
-                v.Reflectance = 0
-            elseif v:IsA("Decal") or v:IsA("Texture") and decalsyeeted then
-                v.Transparency = 1
-            elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
-                v.Lifetime = NumberRange.new(0)
-            elseif v:IsA("Explosion") then
-                v.BlastPressure = 1
-                v.BlastRadius = 1
-            elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
-                v.Enabled = false
-            elseif v:IsA("MeshPart") then
-                v.Material = "Plastic"
-                v.Reflectance = 0
-                v.TextureID = 10385902758728957
-            end
-        end
         for i, e in pairs(l:GetChildren()) do
             if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
                 e.Enabled = false
@@ -5489,14 +5462,14 @@ function NoCooldown()
 	end
 end
 --------------------------------------------------------------------------------------------------------------------------------------------
-local ToggleGeppoNoCD = Tabs.Player:AddToggle("ToggleGeppoNoCD", {Title = "Geppo No Cooldown", Default = false })
+local ToggleGeppoNoCD = Tabs.Player:AddToggle("ToggleGeppoNoCD", {Title = "Geppo No Cooldown", Default = true })
 ToggleGeppoNoCD:OnChanged(function(Value)
     _G.GeppoNoCd = Value
 		NoCooldown()
 end)
 Options.ToggleGeppoNoCD:SetValue(false)
 --------------------------------------------------------------------------------------------------------------------------------------------
-local ToggleDashNoCD = Tabs.Player:AddToggle("ToggleDashNoCD", {Title = "Dash No Cooldown", Default = false })
+local ToggleDashNoCD = Tabs.Player:AddToggle("ToggleDashNoCD", {Title = "Dash No Cooldown", Default = true })
 ToggleDashNoCD:OnChanged(function(Value)
     _G.DashNoCd = Value
     DodgeNoCoolDown()
@@ -5508,7 +5481,7 @@ function DodgeNoCoolDown()
             if game.Players.LocalPlayer.Character.Dodge then
                 if typeof(v) == "function" and getfenv(v).script == game.Players.LocalPlayer.Character.Dodge then
                     for i2, v2 in next, getupvalues(v) do
-                        if tostring(v2) == "0.4" then
+                        if tostring(v2) == "0.2" then
                             repeat
                                 wait(.1)
                                 setupvalue(v, i2, 0)
