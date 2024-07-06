@@ -2808,7 +2808,7 @@ ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ImageButton.Parent = ScreenGui
 ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 ImageButton.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
-ImageButton.Size = UDim2.new(0.0627121851, 0, 0.107579626, 0)
+ImageButton.Size = UDim2.new(0.107579626, 0, 0.107579626, 0)
 ImageButton.Draggable = true
 ImageButton.Image = "http://www.roblox.com/asset/?id=5522032314"
 ImageButton.MouseButton1Down:connect(function()
