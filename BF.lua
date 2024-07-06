@@ -4,10 +4,10 @@ local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/d
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 ----------------------------------------------------------------------------------------------------------------------------------------------
 local Window = Fluent:CreateWindow({
-    Title = "TNT HUB | BlΩx Fruitß",
+    Title = "TNT HUB | ßlox Fruits",
     SubTitle = "By White5961",
     TabWidth = 160,
-    Size = UDim2.fromOffset(530, 350),
+    Size = UDim2.fromOffset(630, 450),
     Acrylic = true,
     Theme = "Amethyst",
     MinimizeKey = Enum.KeyCode.End
@@ -3255,25 +3255,7 @@ end)
     UseCode("KittGaming")
 
 
-    Tabs.Setting:AddButton({
-        Title = "No Effect Dead",
-        Description = "Chết không có hiệu ứng",
-        Callback = function()
-            FPSBooster()
-        end
-    })
-
-    function FPSBooster()
-        local g = game
-        local w = g.Workspace
-        local l = g.Lighting
-        local t = w.Terrain
-        for i, e in pairs(l:GetChildren()) do
-            if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
-                e.Enabled = false
-            end
-        end
-    end
+    
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 --Mastery
@@ -4863,6 +4845,40 @@ Tabs.Setting:AddButton({
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Cold-Script/Attack/main/AttackNoCD", true))()
 		end
 })
+Tabs.Setting:AddButton({
+        Title = "No Effect Dead",
+        Description = "Chết không có hiệu ứng",
+        Callback = function()
+            NoEffectDead()
+        end
+    })
+function NoEffectDead()
+	if game:GetService("ReplicatedStorage").Effect.Container:FindFirstChild("Death") then
+		game:GetService("ReplicatedStorage").Effect.Container.Death:Destroy()
+	end
+	if game:GetService("ReplicatedStorage").Effect.Container:FindFirstChild("Respawn") then
+		game:GetService("ReplicatedStorage").Effect.Container.Respawn:Destroy()
+	end
+end
+Tabs.Setting:AddButton({
+        Title = "No Effect Skill",
+        Description = "Skill không có hiệu ứng",
+        Callback = function()
+            FPSBooster()
+        end
+    })
+
+    function FPSBooster()
+        local g = game
+        local w = g.Workspace
+        local l = g.Lighting
+        local t = w.Terrain
+        for i, e in pairs(l:GetChildren()) do
+            if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+                e.Enabled = false
+            end
+        end
+end
         local SKill = Tabs.Setting:AddSection("Skill Mastery")
 local ToggleZ = Tabs.Setting:AddToggle("ToggleZ", {Title = "Skill Z",Description = "Kĩ Năng Z", Default = true })
 ToggleZ:OnChanged(function(Value)
