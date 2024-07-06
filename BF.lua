@@ -5507,7 +5507,7 @@ spawn(function()
   end)
 end)
 
-
+--[[
 local ToggleSoruNOCD = Tabs.Player:AddToggle("ToggleSoruNOCD", {Title = "Soru No Cooldown", Default = false })
 ToggleSoruNOCD:OnChanged(function(Value)
     _G.SoruNoCd = Value
@@ -5646,6 +5646,7 @@ spawn(function()
         end)
     end
 end)
+]]
 -----------------------------------------------------------------------------------------------------------------------------------------------
 --Teleport
 local Teleport = Tabs.Teleport:AddSection("Teleport World")
