@@ -16,7 +16,7 @@ local Tabs = {
     Main = Window:AddTab({ Title = "Main Tab", Icon = "home" }),
     Setting = Window:AddTab({ Title = "Setting Tab", Icon = "settings" }),
     Stats = Window:AddTab({ Title = "Stats Tab", Icon = "plus-circle" }),
-    ESP = Window:AddTab({ Title = "ESP Tab", Icon = "home" })
+    ESP = Window:AddTab({ Title = "ESP Tab", Icon = "home" }),
     Player = Window:AddTab({ Title = "Player Tab", Icon = "box" }),
     Teleport = Window:AddTab({ Title = "Teleport Island", Icon = "palmtree" }),
     SeaETab = Window:AddTab({ Title = "Sea Event Tab", Icon = "anchor" }),
