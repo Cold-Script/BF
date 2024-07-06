@@ -13,18 +13,19 @@ local Window = Fluent:CreateWindow({
     MinimizeKey = Enum.KeyCode.End
 })
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "home" }),
-    Setting = Window:AddTab({ Title = "Setting", Icon = "settings" }),
-    Stats = Window:AddTab({ Title = "Stats", Icon = "plus-circle" }),
-    Player = Window:AddTab({ Title = "Player", Icon = "box" }),
-    Teleport = Window:AddTab({ Title = "Island", Icon = "palmtree" }),
-    SeaETab = Window:AddTab({ Title = "Sea Event", Icon = "anchor" }),
-    Fruit = Window:AddTab({ Title = "Fruit", Icon = "cherry" }),
-    Raid = Window:AddTab({ Title = "Raid", Icon = "swords" }),
-    Race = Window:AddTab({ Title = "Race V4", Icon = "chevrons-right" }),
-    Shop = Window:AddTab({ Title = "Shop", Icon = "shopping-cart" }),
-	Misc = Window:AddTab({ Title = "Misc", Icon = "list-plus" }),
-    Hop = Window:AddTab({ Title = "Hop", Icon = "user" }),
+    Main = Window:AddTab({ Title = "Main Tab", Icon = "home" }),
+    Setting = Window:AddTab({ Title = "Setting Tab", Icon = "settings" }),
+    Stats = Window:AddTab({ Title = "Stats Tab", Icon = "plus-circle" }),
+    ESP = Window:AddTab({ Title = "ESP Tab", Icon = "home" })
+    Player = Window:AddTab({ Title = "Player Tab", Icon = "box" }),
+    Teleport = Window:AddTab({ Title = "Teleport Island", Icon = "palmtree" }),
+    SeaETab = Window:AddTab({ Title = "Sea Event Tab", Icon = "anchor" }),
+    Fruit = Window:AddTab({ Title = "Fruit Tab", Icon = "cherry" }),
+    Raid = Window:AddTab({ Title = "Raid Doguen Tab", Icon = "swords" }),
+    Race = Window:AddTab({ Title = "Up Race V4 Tab", Icon = "chevrons-right" }),
+    Shop = Window:AddTab({ Title = "Shop Tab", Icon = "shopping-cart" }),
+    Misc = Window:AddTab({ Title = "Misc Tab", Icon = "list-plus" }),
+    Hop = Window:AddTab({ Title = "Hop Server Tab", Icon = "user" }),
 }
 local Options = Fluent.Options
 do
@@ -37,7 +38,7 @@ if id == 2753915549 then First_Sea = true; elseif id == 4442272183 then Second_S
 function AntiBan()
 		for L_116_forvar0, L_117_forvar1 in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
 			if L_117_forvar1:IsA("LocalScript") then
-				if L_117_forvar1.Name == "General" or L_117_forvar1.Name == "FallDamage" or L_117_forvar1.Name == "4444" or L_117_forvar1.Name == "CamBob" or L_117_forvar1.Name == "JumpCD" or L_117_forvar1.Name == "Looking" or L_117_forvar1.Name == "Run" then
+				if L_117_forvar1.Name == "General" or L_117_forvar1.Name == "FallDamage" or L_117_forvar1.Name == "4444" or L_117_forvar1.Name == "CamBob" or L_117_forvar1.Name == "JumpCD" or L_117_forvar1.Name == "Run" then
 					L_117_forvar1:Destroy()
 				end
 			end
@@ -5507,146 +5508,7 @@ spawn(function()
   end)
 end)
 
---[[
-local ToggleSoruNOCD = Tabs.Player:AddToggle("ToggleSoruNOCD", {Title = "Soru No Cooldown", Default = false })
-ToggleSoruNOCD:OnChanged(function(Value)
-    _G.SoruNoCd = Value
-	NoCooldown()
-end)
-Options.ToggleSoruNOCD:SetValue(false)
-function NoCooldown()
-	for i,v in next, getgc() do
-		if typeof(v) == "function" then
-			if getfenv(v).script == game.Players.LocalPlayer.Character:WaitForChild("Dodge") and _G.DashNoCd then
-				for i2,v2 in next, getupvalues(v) do
-					if tostring(v2) == "0.4" then
-						repeat wait(.1)
-							setupvalue(v,i2,0)
-						until not _G.DashNoCd
-					end
-				end
-			end
-			if getfenv(v).script == game.Players.LocalPlayer.Character:WaitForChild("Geppo") and _G.GeppoNoCd then
-				for i2,v2 in next, getupvalues(v) do
-					if tostring(v2) == "0" then
-						repeat wait(.1)
-							setupvalue(v,i2,0)
-						until not _G.GeppoNoCd
-					end
-				end
-			end
-			if getfenv(v).script == game.Players.LocalPlayer.Character:WaitForChild("Soru") and _G.SoruNoCd then
-				for i2,v2 in pairs(debug.getupvalues(v)) do
-					if type(v2) == 'table' then
-						if v2.LastUse then
-							repeat wait()
-								setupvalue(v, i2, {LastAfter = 0,LastUse = 0})
-							until not _G.SoruNoCd
-						end
-					end
-				end
-			end
-		end
-	end
-end
---------------------------------------------------------------------------------------------------------------------------------------------
-local ToggleGeppoNoCD = Tabs.Player:AddToggle("ToggleGeppoNoCD", {Title = "Geppo No Cooldown", Default = true })
-ToggleGeppoNoCD:OnChanged(function(Value)
-    _G.GeppoNoCd = Value
-		NoCooldown()
-end)
-Options.ToggleGeppoNoCD:SetValue(false)
---------------------------------------------------------------------------------------------------------------------------------------------
-local ToggleDashNoCD = Tabs.Player:AddToggle("ToggleDashNoCD", {Title = "Dash No Cooldown", Default = true })
-ToggleDashNoCD:OnChanged(function(Value)
-    _G.DashNoCd = Value
-    DodgeNoCoolDown()
-end)
-Options.ToggleDashNoCD:SetValue(false)
-function DodgeNoCoolDown()
-    if _G.DashNoCd then
-        for i, v in next, getgc() do
-            if game.Players.LocalPlayer.Character.Dodge then
-                if typeof(v) == "function" and getfenv(v).script == game.Players.LocalPlayer.Character.Dodge then
-                    for i2, v2 in next, getupvalues(v) do
-                        if tostring(v2) == "0.2" then
-                            repeat
-                                wait(.1)
-                                setupvalue(v, i2, 0)
-                            until not _G.DashNoCd
-                        end
-                    end
-                end
-            end
-        end
-    end
-end
 
---------------------------------------------------------------------------------------------------------------------------------------------
-local ToggleSpeedHack = Tabs.Player:AddToggle("ToggleSpeedHack", {Title = "Speed Hack", Default = true })
-ToggleSpeedHack:OnChanged(function(Value)
-    _G.SpeedHack = Value
-    InfAbility()
-end)
-Options.ToggleSpeedHack:SetValue(true)
-
-function InfAbility()
-    if _G.SpeedHack then
-        if not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility") then
-            local inf = Instance.new("ParticleEmitter")
-            inf.Acceleration = Vector3.new(0, 0, 0)
-            inf.Archivable = true
-            inf.Drag = 20
-            inf.EmissionDirection = Enum.NormalId.Top
-            inf.Enabled = true
-            inf.Lifetime = NumberRange.new(0.2, 0.2)
-            inf.LightInfluence = 0
-            inf.LockedToPart = true
-            inf.Name = "Agility"
-            inf.Rate = 500
-            local numberKeypoints2 = {
-                NumberSequenceKeypoint.new(0, 0),
-                NumberSequenceKeypoint.new(1, 4),
-            }
-
-            inf.Size = NumberSequence.new(numberKeypoints2)
-            inf.RotSpeed = NumberRange.new(999, 9999)
-            inf.Rotation = NumberRange.new(0, 0)
-            inf.Speed = NumberRange.new(30, 30)
-            inf.SpreadAngle = Vector2.new(360, 360)
-            inf.Texture = "rbxassetid://243098098"
-            inf.VelotyInheritance = 0
-            inf.ZOffset = 2
-            inf.Transparency = NumberSequence.new(0)
-            inf.Color = ColorSequence.new(Color3.fromRGB(0, 255, 255), Color3.fromRGB(0, 255, 255))
-            inf.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
-        end
-    else
-        if game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility") then
-            game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility"):Destroy()
-        end
-    end
-end
-
---------------------------------------------------------------------------------------------------------------------------------------------
-local ToggleWalkOnWater = Tabs.Player:AddToggle("ToggleWalkOnWater", {Title = "Wakl On Water", Default = true })
-ToggleWalkOnWater:OnChanged(function(Value)
-    _G.WalkWater = Value
-end)
-Options.ToggleWalkOnWater:SetValue(true)
- 
-spawn(function()
-    while task.wait() do
-        pcall(function()
-            if _G.WalkWater then
-                game:GetService("Workspace").Map["WaterBase-Plane"].Size = Vector3.new(1000,112,1000)
-            else
-                game:GetService("Workspace").Map["WaterBase-Plane"].Size = Vector3.new(1000,80,1000)
-            end
-        end)
-    end
-end)
-]]
 -----------------------------------------------------------------------------------------------------------------------------------------------
 --Teleport
 local Teleport = Tabs.Teleport:AddSection("Teleport World")
@@ -6074,10 +5936,10 @@ spawn(function()
 end
 end)
 
-local Mastery = Tabs.Fruit:AddSection("Esp")
+local Mastery = Tabs.ESP:AddSection("Esp")
 
 
-local ToggleEspPlayer = Tabs.Fruit:AddToggle("ToggleEspPlayer", {Title = "Esp Player",Description = "Định vị người chơi", Default = false })
+local ToggleEspPlayer = Tabs.ESP:AddToggle("ToggleEspPlayer", {Title = "Esp Player",Description = "Định vị người chơi", Default = false })
 
 ToggleEspPlayer:OnChanged(function(Value)
     ESPPlayer = Value
@@ -6086,7 +5948,7 @@ end)
 Options.ToggleEspPlayer:SetValue(false)
 
 
-local ToggleEspFruit = Tabs.Fruit:AddToggle("ToggleEspFruit", {Title = "Esp Devil Fruit",Description = "Định vị Trái", Default = false })
+local ToggleEspFruit = Tabs.ESP:AddToggle("ToggleEspFruit", {Title = "Esp Devil Fruit",Description = "Định vị Trái", Default = false })
 
 ToggleEspFruit:OnChanged(function(Value)
     DevilFruitESP = Value
@@ -6099,7 +5961,7 @@ Options.ToggleEspFruit:SetValue(false)
 
 
 
-local ToggleEspIsland = Tabs.Fruit:AddToggle("ToggleEspIsland", {Title = "Esp Island",Description = "Định vị đảo", Default = false })
+local ToggleEspIsland = Tabs.ESP:AddToggle("ToggleEspIsland", {Title = "Esp Island",Description = "Định vị đảo", Default = false })
 
 ToggleEspIsland:OnChanged(function(Value)
     IslandESP = Value
@@ -6110,7 +5972,7 @@ end)
 Options.ToggleEspIsland:SetValue(false)
 
 
-local ToggleEspFlower = Tabs.Fruit:AddToggle("ToggleEspFlower", {Title = "Esp Flower",Description = "Định vị Hoa", Default = false })
+local ToggleEspFlower = Tabs.ESP:AddToggle("ToggleEspFlower", {Title = "Esp Flower (Second Sea)",Description = "Định vị Hoa (Cảng 2)", Default = false })
 
 ToggleEspFlower:OnChanged(function(Value)
     FlowerESP = Value
@@ -7481,7 +7343,7 @@ SaveManager:SetFolder("ZedrScriptHub/specific-game")
 Window:SelectTab(1)
 Fluent:Notify({
     Title = "Script By White",
-    Content = "Script Của White",
+    Content = "Script Của White (Hello Bacon_noname :3)",
     Duration = 8
 })
 SaveManager:LoadAutoloadConfig()
