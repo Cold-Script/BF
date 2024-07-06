@@ -3973,7 +3973,9 @@ spawn(function()
     end
 end)
 end
-
+if First_Sea or Second_Sea then
+    local Mastery = Tabs.SeaETab:AddSection("Thid Sea Please !!!")
+end
 if Third_Sea then
 
     local ToggleSailBoat = Tabs.SeaETab:AddToggle("ToggleSailBoat", {Title = "Auto Sail Boat To Zone 6",Description = "auto Zone 6", Default = false })
@@ -4932,8 +4934,8 @@ function NoEffectDead()
 	end
 end
 Tabs.Setting:AddButton({
-        Title = "No Effect Skill",
-        Description = "Skill không có hiệu ứng",
+        Title = "No Effect Sky",
+        Description = "Sky không có hiệu ứng",
         Callback = function()
             FPSBooster()
         end
@@ -5506,7 +5508,6 @@ spawn(function()
 end)
 
 
---[[
 local ToggleSoruNOCD = Tabs.Player:AddToggle("ToggleSoruNOCD", {Title = "Soru No Cooldown", Default = false })
 ToggleSoruNOCD:OnChanged(function(Value)
     _G.SoruNoCd = Value
@@ -5645,7 +5646,6 @@ spawn(function()
         end)
     end
 end)
-]]
 -----------------------------------------------------------------------------------------------------------------------------------------------
 --Teleport
 local Teleport = Tabs.Teleport:AddSection("Teleport World")
@@ -6511,8 +6511,11 @@ end)
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 --RaceV4
+if First_Sea or Second_Sea then
+    local Mastery = Tabs.Race:AddSection("Thid Sea Please !!!")
+end
 
-
+if Third_Sea then
 Tabs.Race:AddButton({
     Title = "Timple Of Time",
     Description = "Đền Thờ",
@@ -6772,7 +6775,7 @@ while wait() do
     end)
 end
 end)
-
+end
 --------------------------------------------------------------------------------------------------------------------------------------------
 --shop
 
@@ -7393,7 +7396,14 @@ function NoFog()
         end
     end
 end
-
+Tabs.Misc:AddButton({
+	Title = "Always Day",
+	Description = "Luôn ngày",
+	Callback = function()
+		game:GetService("RunService").Heartbeat:wait()
+		game:GetService("Lighting").ClockTime = 12
+	end
+})
 --------------------------------------------------------------------------------------------------------------------------------------------
 --Hop
 
@@ -7417,7 +7427,7 @@ spawn(function()
         elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709143733" then
             Hop()
             Fluent:Notify({
-                Title = "YOU HUB",
+                Title = "TNT HUB",
                 Content = "Turn Off Find Full Moon...",
                 SubContent = "", -- Optional
                 Duration = 5 -- Set to nil to make the notification not disappear
@@ -7425,7 +7435,7 @@ spawn(function()
         elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709150401" then
             Hop()
             Fluent:Notify({
-                Title = "YOU HUB",
+                Title = "TNT HUB",
                 Content = "Hop...",
                 SubContent = "", -- Optional
                 Duration = 5 -- Set to nil to make the notification not disappear
@@ -7433,7 +7443,7 @@ spawn(function()
         elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149680" then
             Hop()
             Fluent:Notify({
-                Title = "YOU HUB",
+                Title = "TNT HUB",
                 Content = "Hop...",
                 SubContent = "", -- Optional
                 Duration = 5 -- Set to nil to make the notification not disappear
@@ -7474,24 +7484,4 @@ Fluent:Notify({
     Duration = 8
 })
 SaveManager:LoadAutoloadConfig()
-local L_8_ = Tabs.Setting:AddToggle("ToggleFastAttack", {
-	Title = " Enable Fast Attack",
-	Default = true
-})
-L_8_:OnChanged(function(L_510_arg0)
-	_G.FastAttack = L_510_arg0
-end)
-L_6_.ToggleFastAttack:SetValue(true)
 
-spawn(function()
-	while wait() do
-		pcall(function()
-			if _G.FastAttack then
-				repeat
-					wait(_G.Fast_Delay)
-					AttackNoCD()
-				until not _G.FastAttack
-			end
-		end)
-	end
-end)
