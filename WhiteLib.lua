@@ -1002,7 +1002,7 @@ end
 
             Button.MouseButton1Click:Connect(function()
                 if toggled == false then
-                    toggled = false
+                    toggled = true
                     Circle:TweenPosition(UDim2.new(0, 27, 0, 2), "Out", "Sine", 0.2, true)
                     TweenService:Create(
                         Circle,
