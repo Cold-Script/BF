@@ -268,6 +268,7 @@ function Update:Window(text, logo, keybind)
     Tab.Name = "Tab"
     Tab.Parent = Main
     Tab.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+    Tab.BackgroundTransparency = 0.75
     Tab.Position = UDim2.new(0, 5, 0, 50)
     --Tab.CornerRadius = UDim.new(0,5)
     Tab.Size = UDim2.new(0, 0, 0, 0)
@@ -447,7 +448,7 @@ BtnStroke.Name = "BtnStroke"
         TabButton.Font = Enum.Font.GothamSemibold
         TabButton.TextColor3 = Color3.fromRGB(255, 255, 255)
         TabButton.TextSize = 12.000
-        TabButton.TextTransparency = 0.5
+        TabButton.TextTransparency = 0
 
         Title.Parent = TabButton
         Title.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
