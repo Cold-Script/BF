@@ -329,6 +329,7 @@ BtnStroke.Name = "BtnStroke"
     Page.Name = "Page"
     Page.Parent = Main
     Page.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    Page.BackgroundTransparency = 0.75
     Page.Position = UDim2.new(0.255426834, 0, 0.086000003, 0)
     Page.Size = UDim2.new(0, 410, 0, 308)
     --[[
