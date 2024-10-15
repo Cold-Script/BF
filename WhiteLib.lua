@@ -196,6 +196,7 @@ function Update:Window(text, logo, keybind)
     Main.ClipsDescendants = true
     Main.AnchorPoint = Vector2.new(0.5, 0.5)
     Main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    Main.BackgroundTransparency = 0.75
     Main.Position = UDim2.new(0.5, 0, 0.5, 0)
     Main.Size = UDim2.new(0, 0, 0, 0)
     UICorner.Parent = Main
@@ -1164,7 +1165,7 @@ Title.TextXAlignment = Enum.TextXAlignment.Left
                         }
                     ):Play()
                     callback(Item.Text)
-                    DropTitle.Text = text .. " : " .. Item.Text ..
+                    DropTitle.Text = text .. " : " .. Item.Text
                 end)
             end
 
