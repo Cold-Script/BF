@@ -109,7 +109,7 @@ repeat task.wait(0.1) until game.Players.LocalPlayer
 
 if not game:IsLoaded() then
 	local GameLoadGui = Instance.new("Message",workspace);
-	GameLoadGui.Text = 'Wait Game Loading';
+	GameLoadGui.Text = 'Library By Rechedmcvn';
 	game.Loaded:Wait();
 	GameLoadGui:Destroy();
 	task.wait(10);
@@ -1000,7 +1000,7 @@ end
             UICorner_4.Parent = Circle
 
             Button.MouseButton1Click:Connect(function()
-                if toggled == false then
+                if toggled == true then
                     toggled = true
                     Circle:TweenPosition(UDim2.new(0, 27, 0, 2), "Out", "Sine", 0.2, true)
                     TweenService:Create(
