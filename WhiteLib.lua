@@ -196,7 +196,7 @@ function Update:Window(text, logo, keybind)
     Main.ClipsDescendants = true
     Main.AnchorPoint = Vector2.new(0.5, 0.5)
     Main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    Main.BackgroundTransparency = 0.75
+    Main.BackgroundTransparency = 0
     Main.Position = UDim2.new(0.5, 0, 0.5, 0)
     Main.Size = UDim2.new(0, 0, 0, 0)
     UICorner.Parent = Main
@@ -268,7 +268,7 @@ function Update:Window(text, logo, keybind)
     Tab.Name = "Tab"
     Tab.Parent = Main
     Tab.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-    Tab.BackgroundTransparency = 0.75
+    Tab.BackgroundTransparency = 0
     Tab.Position = UDim2.new(0, 5, 0, 50)
     --Tab.CornerRadius = UDim.new(0,5)
     Tab.Size = UDim2.new(0, 0, 0, 0)
@@ -329,7 +329,7 @@ BtnStroke.Name = "BtnStroke"
     Page.Name = "Page"
     Page.Parent = Main
     Page.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    Page.BackgroundTransparency = 0.75
+    Page.BackgroundTransparency = 0
     Page.Position = UDim2.new(0.255426834, 0, 0.086000003, 0)
     Page.Size = UDim2.new(0, 410, 0, 308)
     --[[
