@@ -15,7 +15,7 @@ openshit.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 mainopen.Name = "mainopen"
 mainopen.Parent = openshit
 mainopen.BackgroundColor3 = Color3.new(1,1,1)
-mainopen.BackgroundTransparency = 0.75
+mainopen.BackgroundTransparency = 1
 mainopen.Position = UDim2.new(0.101969875, 0, 0.110441767, 0)
 mainopen.Size = UDim2.new(0, 64, 0, 42)
 mainopen.TextColor3 = Color3.new(1,1,1)
@@ -115,7 +115,7 @@ if not game:IsLoaded() then
 	GameLoadGui:Destroy();
 	task.wait(10);
 end;
-_G.Color = Color3.fromRGB(230, 238, 255)
+_G.Color = Color3.fromRGB(255, 255, 255)
 if game:GetService("CoreGui").RobloxGui.Modules:FindFirstChild("VVV") then game:GetService("CoreGui").RobloxGui.Modules:FindFirstChild("VVV"):Destroy() end
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -701,7 +701,8 @@ UI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 local StatusFrame = Instance.new("Frame")
 StatusFrame.Name = "StatusFrame"
 StatusFrame.Parent = UI
-StatusFrame.BackgroundColor3 = Color3.fromRGB(0,0,0)
+StatusFrame.BackgroundColor3 = Color3.fromRGB(255,255,255)
+StatusFrame.BackgroundTransparency = 1
 StatusFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
 StatusFrame.Size = UDim2.new(0, 0, 0, 0)
 StatusFrame.ClipsDescendants = true
@@ -750,7 +751,7 @@ UiStatus.Parent = StatusFrame
 UiStatus.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 UiStatus.LineJoinMode = Enum.LineJoinMode.Round
 UiStatus.Color = _G.Color2
-UiStatus.Transparency = 0.10
+UiStatus.Transparency = 0
 
 local Butn2 = Instance.new("Frame")
 local Ui2 = Instance.new("UICorner")
@@ -1163,7 +1164,7 @@ Title.TextXAlignment = Enum.TextXAlignment.Left
                         }
                     ):Play()
                     callback(Item.Text)
-                    DropTitle.Text = text .. " : " .. Item.Text
+                    DropTitle.Text = text .. " : " .. Item.Text ..
                 end)
             end
 
@@ -1900,7 +1901,7 @@ end
             RealTextbox.Position = UDim2.new(0, 275, 0, 4)
             RealTextbox.Size = UDim2.new(0, 100, 0, 24)
             RealTextbox.Font = Enum.Font.GothamSemibold
-            RealTextbox.Text = ""
+            RealTextbox.Text = "..."
             RealTextbox.TextColor3 = Color3.fromRGB(225, 225, 225)
             RealTextbox.TextSize = 11.000
             RealTextbox.TextTransparency = 0
@@ -1908,7 +1909,7 @@ end
             RealTextbox.FocusLost:Connect(function()
                 callback(RealTextbox.Text)
                 if disappear then
-                    RealTextbox.Text = ""
+                    RealTextbox.Text = "..."
                 end
             end)
 
