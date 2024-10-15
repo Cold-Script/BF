@@ -14,7 +14,8 @@ openshit.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 mainopen.Name = "mainopen"
 mainopen.Parent = openshit
-mainopen.BackgroundColor3 = Color3.new(0,0,0)
+mainopen.BackgroundColor3 = Color3.new(1,1,1)
+mainopen.BackgroundTransparency = 0.75
 mainopen.Position = UDim2.new(0.101969875, 0, 0.110441767, 0)
 mainopen.Size = UDim2.new(0, 64, 0, 42)
 mainopen.TextColor3 = Color3.new(1,1,1)
@@ -1000,8 +1001,8 @@ end
             UICorner_4.Parent = Circle
 
             Button.MouseButton1Click:Connect(function()
-                if toggled == true then
-                    toggled = true
+                if toggled == false then
+                    toggled = false
                     Circle:TweenPosition(UDim2.new(0, 27, 0, 2), "Out", "Sine", 0.2, true)
                     TweenService:Create(
                         Circle,
