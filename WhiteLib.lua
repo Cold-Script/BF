@@ -13,13 +13,13 @@ openshit.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 mainopen.Name = "mainopen"
 mainopen.Parent = openshit
-mainopen.BackgroundColor3 = Color3.new(1,1,1)
-mainopen.BackgroundTransparency = 1
+mainopen.BackgroundColor3 = Color3.new(0, 0, 0)
+mainopen.BackgroundTransparency = 0.25
 mainopen.Position = UDim2.new(0.101969875, 0, 0.110441767, 0)
 mainopen.Size = UDim2.new(0, 64, 0, 42)
 mainopen.TextColor3 = Color3.new(1,1,1)
-mainopen.Text = "ON/OFF"
-mainopen.Font = 'GothamBold'
+mainopen.Text = "Toggle"
+mainopen.Font = 'Code'
 mainopen.Visible = true
 mainopen.TextSize = '14'
 mainopen.MouseButton1Click:Connect(function()
