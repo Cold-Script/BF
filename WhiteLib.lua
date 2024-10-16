@@ -467,7 +467,7 @@ BtnStroke.Name = "BtnStroke"
         IDK.BackgroundTransparency = 1.000
         IDK.Position = UDim2.new(0, 3, 0, 3)
         IDK.Size = UDim2.new(0, 20, 0, 20)
-        IDK.Image = img or "rbxassetid://11754245411"
+        IDK.Image = img
         TUICorner.CornerRadius = UDim.new(0, 3)
         TUICorner.Parent = TabButton
 
