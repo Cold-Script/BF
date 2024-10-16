@@ -23,8 +23,8 @@ mainopen.Font = 'GothamBold'
 mainopen.Visible = true
 mainopen.TextSize = '14'
 mainopen.MouseButton1Click:Connect(function()
-	game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.[keybind],false,game)
-	game:GetService("VirtualInputManager"):SendKeyEvent(false,Enum.KeyCode.[keybind],false,game)
+	game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.F1,false,game)
+	game:GetService("VirtualInputManager"):SendKeyEvent(false,Enum.KeyCode.F1,false,game)
 end)
 
 mainopens.Parent = mainopen
