@@ -712,7 +712,7 @@ if not CoreGui:FindFirstChild("Nofitication") then
     Nofitication_Layout.VerticalAlignment = Enum.VerticalAlignment.Bottom
 end
 
-local function Update:Notify(text, desc, color, time)
+function Update:Notify(text, desc, color, time)
     local Ambient_Shadow = Instance.new("ImageLabel")
     local Window = Instance.new("Frame")
     local Outline = Instance.new("Frame")
