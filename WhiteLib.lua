@@ -468,7 +468,7 @@ BtnStroke.Name = "BtnStroke"
         IDK.BackgroundTransparency = 1.000
         IDK.Position = UDim2.new(0, 3, 0, 3)
         IDK.Size = UDim2.new(0, 20, 0, 20)
-        IDK.Image = img
+        IDK.Image = img or "rbxassetid://11754245411"
         TUICorner.CornerRadius = UDim.new(0, 3)
         TUICorner.Parent = TabButton
 
@@ -704,7 +704,7 @@ UI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 local StatusFrame = Instance.new("Frame")
 StatusFrame.Name = "StatusFrame"
 StatusFrame.Parent = UI
-StatusFrame.BackgroundColor3 = Color3.fromRGB(255,255,255)
+StatusFrame.BackgroundColor3 = Color3.fromRGB(0,0,0)
 StatusFrame.BackgroundTransparency = 0
 StatusFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
 StatusFrame.Size = UDim2.new(0, 0, 0, 0)
@@ -828,7 +828,7 @@ Textbtn2.MouseButton1Click:Connect(function()
   ):Play()
 UI:Destroy()
 end)
-		end
+end
         --[[
 function main:Toggle(TogInfo,default,callback)
 local toggle = false
