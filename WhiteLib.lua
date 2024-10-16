@@ -1,3 +1,52 @@
+local openshit = Instance.new("ScreenGui")
+local mainopen = Instance.new("TextButton")
+local mainopens = Instance.new("UICorner")
+local loki = Instance.new("ImageLabel")
+local posto = Instance.new("UIStroke")
+
+openshit.Name = "openshit"
+openshit.DisplayOrder = 999999999
+openshit.IgnoreGuiInset = false
+openshit.ResetOnSpawn = false
+openshit.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+openshit.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+mainopen.Name = "mainopen"
+mainopen.Parent = openshit
+mainopen.BackgroundColor3 = Color3.new(1,1,1)
+mainopen.BackgroundTransparency = 1
+mainopen.Position = UDim2.new(0.101969875, 0, 0.110441767, 0)
+mainopen.Size = UDim2.new(0, 64, 0, 42)
+mainopen.TextColor3 = Color3.new(1,1,1)
+mainopen.Text = "ON/OFF"
+mainopen.Font = 'GothamBold'
+mainopen.Visible = true
+mainopen.TextSize = '14'
+mainopen.MouseButton1Click:Connect(function()
+	game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.[keybind],false,game)
+	game:GetService("VirtualInputManager"):SendKeyEvent(false,Enum.KeyCode.[keybind],false,game)
+end)
+
+mainopens.Parent = mainopen
+ 
+ loki.Name = "loki"
+ loki.Parent = mainopen
+ loki.BackgroundColor3 = Color3.fromRGB(224,224,224)
+ loki.BackgroundTransparency = 1.000
+ loki.Position = UDim2.new(-0.0529999994, 0, -0.244000003, 0)
+ loki.Size = UDim2.new(0, 69, 0, 62)
+ loki.Image = "https://i.pinimg.com/564x/08/25/06/082506876327d31cb742bdfa55ebef87.jpg"
+ 
+ posto.Name = "posto"
+ posto.Parent = mainopen
+ posto.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+ posto.Color = Color3.fromRGB(224,224,224)
+ posto.LineJoinMode = Enum.LineJoinMode.Round
+ posto.Thickness = 1
+ posto.Transparency = 0
+ posto.Enabled = true
+ posto.Archivable = true
+
  local UserInputService = game:GetService("UserInputService")
  local TweenService = game:GetService("TweenService")
  
@@ -125,57 +174,8 @@ end
 
 local Update = {}
 
-function Update:Window(text, logo, keybind)
-    
-local openshit = Instance.new("ScreenGui")
-local mainopen = Instance.new("TextButton")
-local mainopens = Instance.new("UICorner")
-local loki = Instance.new("ImageLabel")
-local posto = Instance.new("UIStroke")
-
-openshit.Name = "openshit"
-openshit.DisplayOrder = 999999999
-openshit.IgnoreGuiInset = false
-openshit.ResetOnSpawn = false
-openshit.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-openshit.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-mainopen.Name = "mainopen"
-mainopen.Parent = openshit
-mainopen.BackgroundColor3 = Color3.new(1,1,1)
-mainopen.BackgroundTransparency = 1
-mainopen.Position = UDim2.new(0.101969875, 0, 0.110441767, 0)
-mainopen.Size = UDim2.new(0, 64, 0, 42)
-mainopen.TextColor3 = Color3.new(1,1,1)
-mainopen.Text = "ON/OFF"
-mainopen.Font = 'GothamBold'
-mainopen.Visible = true
-mainopen.TextSize = '14'
-mainopen.MouseButton1Click:Connect(function()
-	game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.[keybind],false,game)
-	game:GetService("VirtualInputManager"):SendKeyEvent(false,Enum.KeyCode.[keybind],false,game)
-end)
-
-mainopens.Parent = mainopen
- 
- loki.Name = "loki"
- loki.Parent = mainopen
- loki.BackgroundColor3 = Color3.fromRGB(224,224,224)
- loki.BackgroundTransparency = 1.000
- loki.Position = UDim2.new(-0.0529999994, 0, -0.244000003, 0)
- loki.Size = UDim2.new(0, 69, 0, 62)
- loki.Image = "https://i.pinimg.com/564x/08/25/06/082506876327d31cb742bdfa55ebef87.jpg"
- 
- posto.Name = "posto"
- posto.Parent = mainopen
- posto.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
- posto.Color = Color3.fromRGB(224,224,224)
- posto.LineJoinMode = Enum.LineJoinMode.Round
- posto.Thickness = 1
- posto.Transparency = 0
- posto.Enabled = true
- posto.Archivable = true
-	
+function Update:Window(text, logo)
+    local keybind = Enum.KeyCode.F1
     local UICorner = Instance.new("UICorner")
     local osfunc = {}
     local uihide = false
