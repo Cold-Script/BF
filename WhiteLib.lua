@@ -694,139 +694,119 @@ coroutine.resume(
   )
 )
 end
-function Update:Notify(text)
-local UI = Instance.new("ScreenGui")
-UI.Name = "UI"
-UI.Parent = game.CoreGui:WaitForChild("RobloxGui"):WaitForChild("Modules")
-UI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-local StatusFrame = Instance.new("Frame")
-StatusFrame.Name = "StatusFrame"
-StatusFrame.Parent = UI
-StatusFrame.BackgroundColor3 = Color3.fromRGB(0,0,0)
-StatusFrame.BackgroundTransparency = 0
-StatusFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
-StatusFrame.Size = UDim2.new(0, 0, 0, 0)
-StatusFrame.ClipsDescendants = true
-StatusFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+local CoreGui = game:GetService("CoreGui")
 
-StatusFrame:TweenSize(UDim2.new(0,200,0,130),"Out","Quad",0.4,true)
+if not CoreGui:FindFirstChild("Nofitication") then
+    local Nofitication = Instance.new("ScreenGui")
+    Nofitication.Name = "Nofitication"
+    Nofitication.Parent = CoreGui
+    Nofitication.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    Nofitication.ResetOnSpawn = false
+    
+    local Nofitication_Layout = Instance.new("UIListLayout")
+    Nofitication_Layout.Name = "Nofitication Layout"
+    Nofitication_Layout.Parent = Nofitication
+    Nofitication_Layout.HorizontalAlignment = Enum.HorizontalAlignment.Right
+    Nofitication_Layout.SortOrder = Enum.SortOrder.LayoutOrder
+    Nofitication_Layout.VerticalAlignment = Enum.VerticalAlignment.Bottom
+end
 
-local SettingCornerrr = Instance.new("UICorner")
-SettingCornerrr.CornerRadius = UDim.new(0,15)
-SettingCornerrr.Name = "SettingCornerrr"
-SettingCornerrr.Parent = StatusFrame
+local function Update:Notify(text, desc, color, time)
+    local Ambient_Shadow = Instance.new("ImageLabel")
+    local Window = Instance.new("Frame")
+    local Outline = Instance.new("Frame")
+    local Title = Instance.new("TextLabel")
+    local Description = Instance.new("TextLabel")
+    
+    Ambient_Shadow.Name = "Ambient Shadow"
+    Ambient_Shadow.Parent = CoreGui:FindFirstChild("Nofitication")
+    Ambient_Shadow.AnchorPoint = Vector2.new(0.5, 0.5)
+    Ambient_Shadow.BackgroundTransparency = 1
+    Ambient_Shadow.BorderSizePixel = 0
+    Ambient_Shadow.Position = UDim2.new(0.91525954, 0, 0.936809778, 0)
+    Ambient_Shadow.Size = UDim2.new(0, 0, 0, 0)
+    Ambient_Shadow.Image = "rbxassetid://1316045217"
+    Ambient_Shadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
+    Ambient_Shadow.ImageTransparency = 0.4
+    Ambient_Shadow.ScaleType = Enum.ScaleType.Slice
+    Ambient_Shadow.SliceCenter = Rect.new(10, 10, 118, 118)
+    
+    Window.Name = "Window"
+    Window.Parent = Ambient_Shadow
+    Window.BackgroundColor3 = Color3.fromRGB(0,0,0)
+    Window.BackgroundTransparency = 0.75
+    Window.BorderSizePixel = 1
+    Window.Position = UDim2.new(0, 5, 0, 5)
+    Window.Size = UDim2.new(0, 230, 0, 80)
+    Window.ZIndex = 2
+    
+    Outline.Name = "Outline"
+    Outline.Parent = Window
+    Outline.BackgroundColor3 = color
+    Outline.BorderSizePixel = 0.001
+    Outline.Position = UDim2.new(0, 0, 0, 25)
+    Outline.Size = UDim2.new(0, 225, 0, 2)
+    Outline.ZIndex = 5
+    
+    Title.Name = "Title"
+    Title.Parent = Window
+    Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Title.BackgroundTransparency = 1
+    Title.BorderColor3 = Color3.fromRGB(27, 42, 53)
+    Title.BorderSizePixel = 0
+    Title.Position = UDim2.new(0, 8, 0, 2)
+    Title.Size = UDim2.new(0, 222, 0, 22)
+    Title.ZIndex = 4
+    Title.Font = Enum.Font.GothamBold
+    Title.Text = text
+    Title.TextColor3 = color
+    Title.TextSize = 12
+    Title.TextXAlignment = Enum.TextXAlignment.Left
+    
+    Description.Name = "Description"
+    Description.Parent = Window
+    Description.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Description.BackgroundTransparency = 1
+    Description.BorderColor3 = Color3.fromRGB(27, 42, 53)
+    Description.BorderSizePixel = 0
+    Description.Position = UDim2.new(0, 8, 0, 34)
+    Description.Size = UDim2.new(0, 216, 0, 40)
+    Description.ZIndex = 4
+    Description.Font = Enum.Font.FredokaOne
+    Description.Text = desc
+    Description.TextColor3 = color
+    Description.TextTransparency = 0
+    Description.TextSize = 20
+    Description.TextWrapped = true
+    Description.TextXAlignment = Enum.TextXAlignment.Left
+    Description.TextYAlignment = Enum.TextYAlignment.Top
+    local Ui = Instance.new("UICorner")
+    Ui.CornerRadius = UDim.new(0, 10)
+    Ui.Parent = Window
+    local UI = Instance.new("UIStroke")
+    UI.Color = color
+    UI.Parent = Outline
+    UI.Thickness = 1
+    local UI2 = Instance.new("UIStroke")
+    UI2.Color = color
+    UI2.Parent = Window
+    UI2.Thickness = 1
+    local function LocalScript()
+        local Script = Instance.new('LocalScript', Ambient_Shadow)
+    
+        Ambient_Shadow:TweenSize(UDim2.new(0, 240, 0, 90), "Out", "Linear", 0.2)
+        Window.Size = UDim2.new(0, 225, 0, 80)
+        Outline:TweenSize(UDim2.new(0, 0, 0, 2), "Out", "Linear", time)
 
-local StaminaText = Instance.new("TextLabel")
-StaminaText.Name = "StaminaText"
-StaminaText.Parent = StatusFrame
-StaminaText.Active = true
-StaminaText.BackgroundColor3 = Color3.new(1,1,1)
-StaminaText.BackgroundTransparency = 1.000
-StaminaText.Position = UDim2.new(0.0260000005, 0, 0.00000001, 0)
-StaminaText.Size = UDim2.new(0, 200, 0, 22)
-StaminaText.Font = Enum.Font.GothamBold
-StaminaText.Text = ""
-StaminaText.TextColor3 = Color3.new(1,1,1)
-StaminaText.TextSize = 12.000
-StaminaText.TextWrapped = true
-StaminaText.TextXAlignment = Enum.TextXAlignment.Center
-
-local Message = Instance.new("TextLabel")
-Message.Name = "Message"
-Message.Parent = StatusFrame
-Message.Active = true
-Message.BackgroundColor3 = Color3.new(1,1,1)
-Message.BackgroundTransparency = 1.000
-Message.Position = UDim2.new(0.020000005, 0, 0.24000001, 0)
-Message.Size = UDim2.new(0, 190, 0, 22)
-Message.Font = Enum.Font.GothamBold
-Message.Text = text
-Message.TextColor3 = Color3.new(1,1,1)
-Message.TextSize = 17.500
-Message.TextWrapped = false
-Message.TextXAlignment = Enum.TextXAlignment.Center
-
-local UiStatus = Instance.new("UIStroke")
-UiStatus.Thickness = 1
-UiStatus.Parent = StatusFrame
-UiStatus.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-UiStatus.LineJoinMode = Enum.LineJoinMode.Round
-UiStatus.Color = _G.Color2
-UiStatus.Transparency = 0
-
-local Butn2 = Instance.new("Frame")
-local Ui2 = Instance.new("UICorner")
-local Text2 = Instance.new("TextLabel")
-local Textbtn2 = Instance.new("TextButton")
-
-Butn2.Name = "Butn2"
-Butn2.Parent = StatusFrame
-Butn2.BackgroundColor3 = Color3.new(1,1,1)
-Butn2.Size = UDim2.new(0, 180, 0, 30)
-Butn2.Position = UDim2.new(0, 10, 0, 80)
-Butn2.ZIndex = 16
-
-Ui2.CornerRadius = UDim.new(0, 10)
-Ui2.Parent = Butn2
-
-Text2.Parent = Butn2
-Text2.AnchorPoint = Vector2.new(0.5, 0.5)
-Text2.BackgroundColor3 = Color3.new(1,1,1)
-Text2.BackgroundTransparency = 1.000
-Text2.Position = UDim2.new(0.5, 0, 0.5, 0)
-Text2.Size = UDim2.new(0, 40, 0, 12)
-Text2.ZIndex = 16
-Text2.Font = Enum.Font.GothamBold
-Text2.Text = "OK"
-Text2.TextColor3 = Color3.new(0,0,0)
-Text2.TextSize = 14.000
-
-Textbtn2.Parent = Butn2
-Textbtn2.BackgroundColor3 = Color3.fromRGB(0,0,0)
-Textbtn2.BackgroundTransparency = 1.000
-Textbtn2.BorderSizePixel = 0
-Textbtn2.ClipsDescendants = true
-Textbtn2.Size = UDim2.new(1, 0, 1, 0)
-Textbtn2.ZIndex = 16
-Textbtn2.AutoButtonColor = false
-Textbtn2.Font = Enum.Font.Gotham
-Textbtn2.Text = ""
-Textbtn2.TextColor3 = Color3.fromRGB(255,0,0)
-Textbtn2.TextSize = 14.000
-
-Textbtn2.MouseEnter:Connect(function()
-  TweenService:Create(
-    Butn2,
-    TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-    {
-      BackgroundTransparency = 0.5
-    }
-  ):Play()
-  end)
-
-Textbtn2.MouseLeave:Connect(function()
-  TweenService:Create(
-    Butn2,
-    TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-    {
-      BackgroundTransparency = 0
-    }
-  ):Play()
-  end)
-
-Textbtn2.MouseButton1Click:Connect(function()
-  CircleClick(Butn2, Mouse.X, Mouse.Y)
-  Text2.TextSize = 0
-  TweenService:Create(
-    Text2,
-    TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-    {
-      TextSize = 12
-    }
-  ):Play()
-UI:Destroy()
-end)
+        Wait(time)
+    
+        Ambient_Shadow:TweenSize(UDim2.new(0, 0, 0, 0), "Out", "Linear", 0.2)
+        
+        Wait(0.2)
+        Ambient_Shadow:Destroy()
+    end
+    coroutine.wrap(LocalScript)()
 end
         --[[
 function main:Toggle(TogInfo,default,callback)
