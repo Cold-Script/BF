@@ -14,11 +14,11 @@ openshit.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 mainopen.Name = "mainopen"
 mainopen.Parent = openshit
 mainopen.BackgroundColor3 = Color3.new(0, 0, 0)
-mainopen.BackgroundTransparency = 0.25
+mainopen.BackgroundTransparency = 0.75
 mainopen.Position = UDim2.new(0.101969875, 0, 0.110441767, 0)
 mainopen.Size = UDim2.new(0, 64, 0, 42)
 mainopen.TextColor3 = Color3.new(1,1,1)
-mainopen.Text = "Toggle"
+mainopen.Text = "Toggle UI"
 mainopen.Font = 'Code'
 mainopen.Visible = true
 mainopen.TextSize = '14'
@@ -1911,7 +1911,7 @@ end
             Label.Size = UDim2.new(0, 410, 0, 20)
             Label.Font = Enum.Font.GothamSemibold
             Label.TextColor3 = Color3.fromRGB(225, 225, 225)
-            Label.TextSize = 16.000
+            Label.TextSize = 15.000
             Label.Text = text
             Label.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -2041,7 +2041,7 @@ end
             Label.Size = UDim2.new(0, 410, 0, 20)
             Label.Font = Enum.Font.GothamSemibold
             Label.TextColor3 = Color3.fromRGB(225, 225, 225)
-            Label.TextSize = 16.000
+            Label.TextSize = 15.000
             Label.Text = text
             Label.TextXAlignment = Enum.TextXAlignment.Left
 
