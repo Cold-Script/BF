@@ -195,7 +195,7 @@ function Update:Window(text, logo)
     Main.ClipsDescendants = true
     Main.AnchorPoint = Vector2.new(0.5, 0.5)
     Main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    Main.BackgroundTransparency = 0
+    Main.BackgroundTransparency = 0.75
     Main.Position = UDim2.new(0.5, 0, 0.5, 0)
     Main.Size = UDim2.new(0, 0, 0, 0)
     UICorner.Parent = Main
@@ -328,7 +328,7 @@ BtnStroke.Name = "BtnStroke"
     Page.Name = "Page"
     Page.Parent = Main
     Page.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    Page.BackgroundTransparency = 0
+    Page.BackgroundTransparency = 1
     Page.Position = UDim2.new(0.255426834, 0, 0.086000003, 0)
     Page.Size = UDim2.new(0, 410, 0, 308)
     --[[
@@ -590,6 +590,7 @@ UICornerFrame.Parent = TabFrame
             Button.Name = "Button"
             Button.Parent = MainFramePage
             Button.BackgroundColor3 = Color3.new(0, 0, 0)
+	    Button.BackgroundTransparency = 1
             Button.Size = UDim2.new(0, 387, 0, 31)
 
             UICorner.CornerRadius = UDim.new(0, 5)
@@ -926,6 +927,7 @@ end
             Button.Name = "Button"
             Button.Parent = MainFramePage
             Button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	    Button.BackgroundTransparency = 1
             Button.Position = UDim2.new(0, 1, 0, 1)
             Button.Size = UDim2.new(0, 387, 0, 31)
             Button.AutoButtonColor = false
@@ -978,9 +980,9 @@ end
             Circle.Parent = ToggleImage
             Circle.BackgroundColor3 = Color3.new(0,0,0)
             Circle.Position = UDim2.new(0, 2, 0, 2)
-            Circle.Size = UDim2.new(0, 16, 0, 16)
+            Circle.Size = UDim2.new(0, 25, 0, 25)
 
-            UICorner_4.CornerRadius = UDim.new(0, 10)
+            UICorner_4.CornerRadius = UDim.new(0, 2.5)
             UICorner_4.Parent = Circle
 
             Button.MouseButton1Click:Connect(function()
@@ -990,7 +992,7 @@ end
                     TweenService:Create(
                         Circle,
                         TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        { BackgroundColor3 = Color3.new(0,0,0) }
+                        { BackgroundColor3 = Color3.fromRGB(80,80,80) }
                     ):Play()
                 else
                     toggled = false
@@ -998,7 +1000,7 @@ end
                     TweenService:Create(
                         Circle,
                         TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        { BackgroundColor3 = Color3.new(0,0,0) }
+                        { BackgroundColor3 = Color3.fromRGB(80,80,80) }
                     ):Play()
                 end
                 pcall(callback, toggled)
@@ -1010,7 +1012,7 @@ end
                 TweenService:Create(
                     Circle,
                     TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                    { BackgroundColor3 = Color3.new(0,0,0) }
+                    { BackgroundColor3 = Color3.fromRGB(80,80,80) }
                 ):Play()
                 pcall(callback, toggled)
             end
@@ -1046,6 +1048,7 @@ Title.TextXAlignment = Enum.TextXAlignment.Left
             Dropdown.Name = "Dropdown"
             Dropdown.Parent = MainFramePage
             Dropdown.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	    Dropdown.BackgroundTransparency = 1
             Dropdown.ClipsDescendants = true
             Dropdown.Size = UDim2.new(0, 387, 0, 31)
 
@@ -1278,7 +1281,7 @@ Title.TextXAlignment = Enum.TextXAlignment.Left
             SliderFrame_2.Name = "SliderFrame_2"
             SliderFrame_2.Parent = SliderFrame
             SliderFrame_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-            SliderFrame_2.BackgroundTransparency = 0
+            SliderFrame_2.BackgroundTransparency = 1
             SliderFrame_2.BorderSizePixel = 0
             SliderFrame_2.Position = UDim2.new(0, 1, 0, 1)
             SliderFrame_2.Size = UDim2.new(0, 387, 0, 60)
@@ -1879,7 +1882,7 @@ end
             RealTextbox.Name = "RealTextbox"
             RealTextbox.Parent = Textbox
             RealTextbox.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-            RealTextbox.BackgroundTransparency = 0
+            RealTextbox.BackgroundTransparency = 1
             RealTextbox.Position = UDim2.new(0, 275, 0, 4)
             RealTextbox.Size = UDim2.new(0, 100, 0, 24)
             RealTextbox.Font = Enum.Font.GothamSemibold
@@ -2009,7 +2012,7 @@ end
             RealTextbox.Name = "RealTextbox"
             RealTextbox.Parent = Textbox
             RealTextbox.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-            RealTextbox.BackgroundTransparency = 0
+            RealTextbox.BackgroundTransparency = 1
             RealTextbox.Position = UDim2.new(0, 275, 0, 4)
             RealTextbox.Size = UDim2.new(0, 100, 0, 24)
             RealTextbox.Font = Enum.Font.GothamSemibold
