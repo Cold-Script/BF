@@ -908,8 +908,7 @@ ImageButton.MouseButton1Click:Connect(function()
  end)
 end
 ]]
-        --
-        function main:Toggle(text, config, callback)
+ function main:Toggle(text, config, callback)
             config = config or false
             local toggled = config
             local UICorner = Instance.new("UICorner")
@@ -979,10 +978,11 @@ end
             Circle.Name = "Circle"
             Circle.Parent = ToggleImage
             Circle.BackgroundColor3 = Color3.new(0,0,0)
+	    Circle.BackgroundTransparency = 0.75
             Circle.Position = UDim2.new(0, 2, 0, 2)
-            Circle.Size = UDim2.new(0, 25, 0, 25)
+            Circle.Size = UDim2.new(0, 16, 0, 16)
 
-            UICorner_4.CornerRadius = UDim.new(0, 2.5)
+            UICorner_4.CornerRadius = UDim.new(0, 10)
             UICorner_4.Parent = Circle
 
             Button.MouseButton1Click:Connect(function()
@@ -992,7 +992,7 @@ end
                     TweenService:Create(
                         Circle,
                         TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        { BackgroundColor3 = Color3.fromRGB(80,80,80) }
+                        { BackgroundColor3 = Color3.new(0,0,0) }
                     ):Play()
                 else
                     toggled = false
@@ -1000,7 +1000,7 @@ end
                     TweenService:Create(
                         Circle,
                         TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        { BackgroundColor3 = Color3.fromRGB(80,80,80) }
+                        { BackgroundColor3 = Color3.new(0,0,0) }
                     ):Play()
                 end
                 pcall(callback, toggled)
@@ -1012,11 +1012,13 @@ end
                 TweenService:Create(
                     Circle,
                     TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                    { BackgroundColor3 = Color3.fromRGB(80,80,80) }
+                    { BackgroundColor3 = Color3.new(0,0,0) }
                 ):Play()
                 pcall(callback, toggled)
             end
-        end
+		end
+		
+     
 
         --[[
 function main:BigTitle(text)
@@ -1838,7 +1840,7 @@ end
             Textbox.Name = "Textbox"
             Textbox.Parent = MainFramePage
             Textbox.BackgroundColor3 = _G.Color 
-            Textbox.BackgroundTransparency = 0
+            Textbox.BackgroundTransparency = 0.7
             Textbox.Size = UDim2.new(0, 387, 0, 31)
 
             TextboxCorner.CornerRadius = UDim.new(0, 5)
@@ -1968,7 +1970,7 @@ end
             Textbox.Name = "Textbox"
             Textbox.Parent = MainFramePage
             Textbox.BackgroundColor3 = _G.Color 
-            Textbox.BackgroundTransparency = 0
+            Textbox.BackgroundTransparency = 0.7
             Textbox.Size = UDim2.new(0, 387, 0, 31)
 
             TextboxCorner.CornerRadius = UDim.new(0, 5)
